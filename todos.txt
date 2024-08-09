@@ -1,0 +1,41 @@
+1- add (supportedLocales: [Locale("en"), Locale("ar")]) to the material widget
+2- add (localization) folder to the asset folder
+3- in the (localization) folder create two json files: (en.json, ar.json)
+4- in the both files add an empty map {}
+5- add the json files to pubspec.yaml : 
+	assets/localization/en.json
+	assets/localization/ar.json
+
+5- add (localizationsDelegate: []) to the material widget.
+6- in pubspec.yaml dependencies: flutter_localizations NOT flutter_localization
+	flutter_localizations: 
+		sdk: flutter
+and import it in the main.dart file
+
+7- add to the localizationsDelegate list these delegates:
+	GlobalMaterialLocalizations.delegate,
+	GlobalWidgetsLocalizations.delegate,
+	GlobalCupertinoLocalizations.delegate,
+
+8- in the material widget add the attribute: localResolutionCallback 
+	localResolutionCallback: (deviceLocale, supportedLocales){
+		// set the app language
+		for (var locale in supportedLocales) {
+          if (deviceLocale != null &&
+              deviceLocale.languageCode == locale.languageCode) {
+            return deviceLocale;
+          }
+        }
+        return const Locale("en"); // supportedLocales.first;
+	},
+
+9- create AppLocalizations.dart class: 
+
+
+10- add AppLocalizations.delegate to the "localizationsDelegate" attribute in the material Widget.
+
+11- add your strings to json file.
+
+12- call the string you need as:
+	AppLocalizations.of(context)!.translate("key")
+	|| "key".tr(context) 
