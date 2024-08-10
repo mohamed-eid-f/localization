@@ -1,3 +1,5 @@
 {
-  "hello_msg": "Hello There"
+  "hello_msg": "Hello There",
+  "home": "Home",
+  "setting": "Settings"
 }

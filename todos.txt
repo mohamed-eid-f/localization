@@ -7,7 +7,7 @@
 	assets/localization/ar.json
 
 5- add (localizationsDelegate: []) to the material widget.
-6- in pubspec.yaml dependencies: flutter_localizations NOT flutter_localization
+6- in pubspec.yaml dependencies add: flutter_localizations NOT flutter_localization
 	flutter_localizations: 
 		sdk: flutter
 and import it in the main.dart file
@@ -38,4 +38,5 @@ and import it in the main.dart file
 
 12- call the string you need as:
 	AppLocalizations.of(context)!.translate("key")
-	|| "key".tr(context) 
+	|| 
+	"key".tr(context) 

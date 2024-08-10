@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/localization/app_localizations.dart';
+import 'setting_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,7 +9,18 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("home".tr(context)),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => const SettingPage()));
+            },
+            icon: const Icon(Icons.settings),
+          )
+        ],
+      ),
       drawer: const Drawer(),
       body: Center(
         child: Padding(
@@ -17,7 +29,7 @@ class HomePage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                "hello_msg".tr(context),
+                "${"hello_msg".tr(context)} !",
                 style: const TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,
               ),
